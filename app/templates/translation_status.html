@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 class="mb-4 text-center">Translation Status</h2>
+    {% if status == 'completed' %}
+        <p class="text-success text-center">Translation completed successfully!</p>
+        <a href="{{ url_for('main.download_translation', translation_id=translation.id) }}" class="btn btn-dark w-100">
+            <i class="fas fa-download"></i> Download Translated Document
+        </a>
+    {% elif status == 'in_progress' %}
+        <p class="text-warning text-center">Your translation is in progress. Please wait...</p>
+    {% else %}
+        <p class="text-danger text-center">An error occurred during translation. Please try again.</p>
+    {% endif %}
+{% endblock %}

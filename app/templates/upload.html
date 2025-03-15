@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 class="mb-4 text-center">Upload Document for Translation</h2>
+    <form method="POST" action="{{ url_for('main.upload') }}" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="mb-3">
+            <label for="file" class="form-label">Select Document</label>
+            <input type="file" name="file" class="form-control" id="file" required>
+        </div>
+        <div class="mb-3">
+            <label for="language" class="form-label">Translate To</label>
+            <select name="language" id="language" class="form-select" required>
+                {% for lang_name, lang_code in languages.items() %}
+                    <option value="{{ lang_code }}">{{ lang_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-dark w-100">Translate</button>
+    </form>
+{% endblock %}
