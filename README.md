@@ -35,7 +35,7 @@ DocuTrans/
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/yourusername/DocuTrans.git
+git clone https://github.com/LalwaniPalash/DocuTrans.git
 cd DocuTrans
 ```
 
